@@ -4,18 +4,18 @@
 
 ```java
 import org.junit.Test;
-import org.junit.Assert;
+import static org.junit.Assert.assertEquals;
 
 class AssertTest {
     @Test
     public void assertEqualsTest() {
-        Assert.assertEquals("expected here?", "or here?");
-        Assert.assertEquals("Is it actual?", "Is this error message?", "Oh...");
+        assertEquals("expected here?", "or here?");
+        assertEquals("Is it actual?", "Is this error message?", "Oh...");
     }
 }
 ```
 
-## Solution -- ExpectJ
+## Solution - ExpectJ
 
 Small library to make assertions more readable. It's compatible with all test frameworks.
 
