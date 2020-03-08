@@ -32,7 +32,7 @@ class AssertTest {
      */
     @Test
     public void assertEqualsTest() {
-        expect("ACTUAL VALUE").to(equal("EXPECTED VALUE"));
+        expect("ACTUAL VALUE").to(beEqual("EXPECTED VALUE"));
     }
 }
 ```
@@ -64,14 +64,13 @@ class ExampleTest {
 
     @Test
     public void assertionsExamples() {
-        expect(result).toBe(equal(3));
-        // or equivalent expect(result).to(equal(3));
-        expect("output").toBe(greaterThan("aaa"));
+        expect(result).to(beEqual(3));
+        expect("output").to(beGreaterThan("aaa"));
 
         expect("output").to(be(new String("output"))); // fails
-        expect("output").toBe(equal(new String("output"))); // passes
+        expect("output").to(beEqual(new String("output"))); // passes
     }
-    
+
     /**
      * Test without static methods.
      * Demonstrates what happens inside.
@@ -158,16 +157,16 @@ public class PowerTest {
         expect(powerOfTwo(10)).to(beEven());
     }
 }
-```            
+```
 
 Rewrite this example even shorter in Java 8:
 ```java
-public class PowerTest {                
+public class PowerTest {
     Check<Number> beEven = (x) -> x.intValue() % 2 == 0;
-                        
-    @Test                                                   
-    public void test() {                                    
-        expect(powerOfTwo(10)).to(beEven);                
-    }                                                       
-}                                                           
+
+    @Test
+    public void test() {
+        expect(powerOfTwo(10)).to(beEven);
+    }
+}
 ```
