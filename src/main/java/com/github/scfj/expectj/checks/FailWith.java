@@ -16,7 +16,7 @@ public class FailWith<T extends UnsafeRunnable> implements Check<T> {
     }
 
     @Override
-    public boolean satisfies(T actual) {
+    public <A extends T> boolean satisfies(A actual) {
         try {
             actual.run();
         } catch (Throwable throwable) {

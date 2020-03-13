@@ -9,7 +9,7 @@ public class Equal<T> implements Check<T> {
         this.expected = expectedObject;
     }
 
-    public boolean satisfies(T actual) {
+    public <A extends T> boolean satisfies(A actual) {
         return expected.equals(actual);
     }
 

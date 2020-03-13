@@ -7,19 +7,19 @@ public class Expectation<T> {
         this.actual = value;
     }
 
-    public void to(Check<T> check) {
+    public void to(Check<? super T> check) {
         if (!check.satisfies(actual)) {
             raise("to", check);
         }
     }
 
-    public void notTo(Check<T> check) {
+    public void notTo(Check<? super T> check) {
         if (check.satisfies(actual)) {
             raise("not to", check);
         }
     }
 
-    private void raise(String message, Check<T> check) {
+    private void raise(String message, Check<?> check) {
         throw new AssertionError(
                 String.format("Expected %s %s %s.", actual, message, check)
         );

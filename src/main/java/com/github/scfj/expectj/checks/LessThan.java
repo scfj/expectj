@@ -9,7 +9,7 @@ public class LessThan<T extends Comparable<T>> implements Check<T> {
         this.threshold = thresholdValue;
     }
 
-    public boolean satisfies(T actual) {
+    public <A extends T> boolean satisfies(A actual) {
         return threshold.compareTo(actual) > 0;
     }
 

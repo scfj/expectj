@@ -21,7 +21,7 @@ public class ExpectationTest {
         T value;
 
         @Override
-        public boolean satisfies(T actual) {
+        public <A extends T> boolean satisfies(A actual) {
             invoked = true;
             value = actual;
             return true;
@@ -34,7 +34,7 @@ public class ExpectationTest {
 
     static class None<T> implements Check<T> {
         @Override
-        public boolean satisfies(T actual) {
+        public <A extends T> boolean satisfies(A actual) {
             return false;
         }
     }
